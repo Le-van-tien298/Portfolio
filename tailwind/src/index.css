@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-h1 font-h1 leading-h1 mb-h1 text-white;
+    }
+
+    h2 {
+        @apply text-h2 font-h2 leading-h2 mb-h2 text-white;
+    }
+
+    h3 {
+        @apply text-h3 font-h3 leading-h3 mb-h3 text-white;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: #0B0C10;
+    color: #C5C6C7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.text-gradien-cyan {
+    color: #00FFFF;
+    text-shadow:
+        0 0 4px #00FFFF,
+        0 0 8px #00FFFF,
+        0 0 12px #00CED1;
+}
+
+.bg-white-blur {
+    background-color: transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+header {
+    z-index: 999999;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+/* NAVBAR */
+.navbar a {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.navbar a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(18, 229, 236, 0.995);
+    animation: scal .3s ease-in-out forwards;
+}
+
+@keyframes scal {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.move {
+    animation: move 0.5s linear forwards;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* introduction */
+/* introduction imgage */
+
+.border-ff {
+    border-bottom: 1px solid #ffffff40;
+}
+
+.moveimge {
+    animation: movedown 0.5s linear forwards;
+}
+
+@keyframes movedown {
+    from {
+        transform: translatey(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translatey(0);
+        opacity: 1;
+    }
+}
+
+#about .icon {
+    animation: moveicon .5s linear;
+}
+
+@keyframes moveicon {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* INFO */
+.inFo {
+    animation: moveinfo .5s linear;
+}
+
+.inFo>* {
+    animation: moveinfo .5s linear forwards;
+    opacity: 0;
+}
+
+.inFo>*:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.inFo>*:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.inFo>*:nth-child(3) {
+    animation-delay: .4s;
+}
+
+.inFo>*:nth-child(4) {
+    animation-delay: .6s;
+}
+
+.inFo>*:nth-child(5) {
+    animation-delay: .10s;
+}
+
+@keyframes moveinfo {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+/* InFo Title */
+/* Button hover effect */
+.info_btn-color {
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.info_btn-color::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #66fcf1;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.info_btn-color:hover::before {
+    left: 0;
+}
+
+.info_btn-color:hover {
+    color: black;
+    border-color: transparent;
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+    transition: all 0.3s ease;
+    transform-origin: top;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.mobile-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+/* Animation cho menu */
+@keyframes slideDown {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.mobile-menu:not(.hidden) {
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* Button font */
+button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Info section font */
+.inFo p {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Skills section font */
+#skills p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+/* Projects section font */
+#projects h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+#projects p {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* SKILLS */
+.skill_text {
+    animation: moveSkillUp 2s ease forwards;
+}
+
+.skill_animation {
+    animation: moveSkillUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes moveSkillUp {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Project */
+.project_border {
+    border: 1px solid cyan;
+}
+
+.project_border:hover {
+    box-shadow: 0 0 4px #00FFFF,
+        0 0 8px #00FFFF,
+        0 0 12px #00CED1;
+    ;
+}
+
+.project_title {
+    position: relative;
+    margin-top: 20px;
+}
+
+.project_title::before {
+    content: '';
+    position: absolute;
+    right: calc(50% - 16px);
+    top: -5px;
+    width: 30px;
+    height: 2px;
+    background-color: #ccc;
+}
+
+.project {
+    position: relative;
+}
+
+.project:hover::after {
+    animation: moveUp .5s ease forwards;
+
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.project_icon {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 35px);
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid;
+    opacity: 0;
+    z-index: 999999;
+
+}
+
+.project:hover .project_icon {
+    animation: moveUp .5s linear forwards;
+    animation-delay: .2s;
+
+}
+
+
+
+.project_animation_all>* {
+    animation: moveUp 1s ease forwards;
+    opacity: 0;
+
+}
+
+.project_animation_all>.project1:nth-child(1) {
+    animation-delay: .5s;
+}
+
+.project_animation_all>.project1:nth-child(2) {
+    animation-delay: .7s;
+}
+
+.project_animation_all>.project1:nth-child(3) {
+    animation-delay: 1s;
+}
