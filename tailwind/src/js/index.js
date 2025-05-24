@@ -44,7 +44,6 @@ const observer = new IntersectionObserver(entries => {
         const projects = e.target.querySelectorAll('.project');
         if (e.isIntersecting) {
             projects.forEach(project => {
-
                 project.classList.add('project_animation_all');
             });
             return;
@@ -66,14 +65,17 @@ const observer2 = new IntersectionObserver(entries => {
     entries.forEach(e => {
         const skills = e.target.querySelectorAll('.skill');
         if (e.isIntersecting) {
-            skills.forEach(skill => {
-                skill.classList.add('skill_animation');
+            skills.forEach((skill, idx) => {
+                setTimeout(() => {
+                    skill.classList.add('skill_animation');
+                }, idx * 120); // mỗi icon delay 120ms
             });
             return;
         }
         skills.forEach(skill => {
             skill.classList.remove('skill_animation');
         });
+
     });
 }, {
     threshold: 0.1
@@ -83,4 +85,29 @@ const skillWrappers = document.querySelectorAll('#skills .wraper');
 skillWrappers.forEach(wrapper => {
     observer2.observe(wrapper);
 });
+
+
+const light = document.querySelector('.light');
+let targetX = window.innerWidth / 2;
+let targetY = window.innerHeight / 2;
+let currentX = targetX;
+let currentY = targetY;
+
+document.addEventListener('mousemove', (e) => {
+    targetX = e.pageX;
+    targetY = e.pageY;
+});
+
+// Hàm animate với độ trễ mượt mà
+function animate() {
+    currentX += (targetX - currentX) * 0.1; // 0.1 là tốc độ đuổi theo (nhỏ hơn = chậm hơn)
+    currentY += (targetY - currentY) * 0.1;
+
+    light.style.left = currentX + 'px';
+    light.style.top = currentY + 'px';
+
+    requestAnimationFrame(animate);
+}
+
+animate();
 
